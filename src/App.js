@@ -47,7 +47,7 @@ class App extends React.Component {
   // Fetch your categories immediately after the component is mounted
   componentDidMount = async () => {
     try {
-      const response = await axios.get('http://40.75.13.4:1337/categories');
+      const response = await axios.get('http://52.184.177.142:1337/categories');
       this.setState({ allCategories: response.data });
     } catch (error) {
       this.setState({ error });
@@ -69,7 +69,7 @@ class App extends React.Component {
 
     try {
       const response = await axios.post(
-        'http://40.75.13.4:1337/restaurants',
+        'http://52.184.177.142:1337/restaurants',
         this.state.modifiedData
       );
       console.log(response);
