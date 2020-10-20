@@ -1,30 +1,3 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React from 'react';
 import axios from 'axios';
 
@@ -47,10 +20,12 @@ class App extends React.Component {
   // Fetch your categories immediately after the component is mounted
   componentDidMount = async () => {
     try {
-      const response = await axios.get('http://40.75.119.172:1337/categories');
+      const response = await axios.get('http://40.79.253.64:1337/categories');
       this.setState({ allCategories: response.data });
+      console.log("Categories data : ",response.data);
     } catch (error) {
       this.setState({ error });
+      console.log("Error in Categories fetching : ",error);
     }
   };
 
@@ -69,10 +44,10 @@ class App extends React.Component {
 
     try {
       const response = await axios.post(
-        'http://40.75.119.172:1337/restaurants',
+        'http://40.79.253.64:1337/restaurants',
         this.state.modifiedData
       );
-      console.log(response);
+      console.log("Creating a new restaurant : ",response);
     } catch (error) {
       this.setState({ error });
     }
